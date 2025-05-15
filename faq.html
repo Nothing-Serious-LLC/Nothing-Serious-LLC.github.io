@@ -3,31 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Answers to common questions about Quests and Nothing Serious LLC.">
+  <link rel="canonical" href="https://nothingserious.info/faq.html">
+
+  <meta property="og:title" content="FAQ – Nothing Serious LLC">
+  <meta property="og:image" content="https://nothingserious.info/assets/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+
   <title>FAQ – Nothing Serious LLC</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#121212;--txt:#f5f5f5;--accent:#64b5f6;--card:#1e1e1e;--div:#333;}
+    :root{--bg:#121212;--txt:#f5f5f5;--accent:#3354ff;--card:#1e1e1e;--div:#333}
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);display:flex;flex-direction:column;min-height:100vh}
+
+    /* top-nav (trimmed) */
     nav{padding:26px 0;text-align:center}
-    nav a{margin:0 14px;color:var(--txt);text-decoration:none;font-weight:600}
+    nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
     nav a:hover{color:var(--accent)}
+
     main{flex:1;max-width:900px;width:90%;margin:0 auto;padding:60px 0}
-    h1{font-size:2.2rem;margin-bottom:40px;text-align:center}
+    h1{text-align:center;font-size:2.2rem;margin-bottom:40px}
     details{background:var(--card);border-radius:10px;margin-bottom:20px;padding:24px}
     summary{cursor:pointer;font-weight:600;font-size:1.15rem;margin-bottom:12px;list-style:none}
     summary::marker{display:none}
-    footer{text-align:center;padding:30px;border-top:1px solid var(--div);font-size:.9rem;color:#888}
+
+    /* footer (roomier) */
+    footer{padding:46px 15px 36px;border-top:1px solid var(--div);text-align:center}
+    footer p{margin-bottom:18px;font-size:.95rem;color:#bbb}
+    footer a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
+    footer a:hover{color:var(--accent)}
   </style>
 </head>
 <body>
+
   <nav>
     <a href="/">Home</a>
     <a href="/quests.html">Quests</a>
     <a href="/contact.html">Contact</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
   </nav>
 
   <main>
@@ -35,30 +48,40 @@
 
     <details>
       <summary>Is Quests free?</summary>
-      <p>Yes – core features are free. We may introduce a premium tier for advanced analytics and exclusive challenges.</p>
+      <p>Yes. Core functionality is free. We may add an optional premium tier for advanced analytics and exclusive challenges.</p>
     </details>
 
     <details>
       <summary>Which platforms are supported?</summary>
-      <p>iOS (14 +) and Android (9 +). A web dashboard is on our roadmap.</p>
+      <p>iOS 14 + and Android 9 +. A web dashboard is on our roadmap.</p>
     </details>
 
     <details>
       <summary>How do I invite friends?</summary>
-      <p>Open a quest → tap “Invite” → share the unique link or SMS code.</p>
+      <p>Open any quest → tap “Invite” → share the link or SMS code.</p>
     </details>
 
     <details>
       <summary>Can I create private quests?</summary>
-      <p>Yes. When you create a quest, toggle “Private” – only invited users see it.</p>
+      <p>Absolutely. Toggle “Private” when creating a quest and only invited users will see it.</p>
     </details>
 
     <details>
       <summary>How do I delete my data?</summary>
-      <p>Inside the app: Profile → Settings → Delete Account. All personal data is erased within 24 h.</p>
+      <p>In the app: Profile → Settings → Delete Account. All personal data is erased within 24 hours.</p>
     </details>
   </main>
 
-  <footer>&copy; 2025 Nothing Serious LLC</footer>
+  <footer>
+    <p>&copy; 2025 Nothing Serious LLC</p>
+    <div class="foot-nav">
+      <a href="/">Home</a>
+      <a href="/quests.html">Quests</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </footer>
 </body>
 </html>
