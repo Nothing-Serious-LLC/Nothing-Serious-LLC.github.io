@@ -11,16 +11,18 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
 
-    nav{padding:24px 0;text-align:center}
-    nav a{margin:0 12px;color:var(--accent);text-decoration:none;font-weight:600}
+    nav{padding:26px 0;text-align:center}
+    nav a{margin:0 14px;color:var(--txt);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
 
     main{flex:1;display:flex;justify-content:center;align-items:center;padding:60px 5%}
-    form{background:var(--card);padding:40px;border-radius:8px;width:100%;max-width:500px}
+    form{background:var(--card);padding:42px;border-radius:10px;width:100%;max-width:520px}
     label{display:block;margin-bottom:8px;font-weight:600}
     input,textarea{width:100%;padding:12px;margin-bottom:20px;background:#181818;border:1px solid var(--div);border-radius:4px;color:var(--txt)}
     button{background:var(--accent);color:var(--bg);padding:14px 24px;border:none;border-radius:6px;font-weight:600;cursor:pointer}
+    #success-msg{display:none;text-align:center;font-size:1.2rem}
 
-    footer{text-align:center;padding:25px;border-top:1px solid var(--div);font-size:.9rem;color:#888}
+    footer{text-align:center;padding:30px;border-top:1px solid var(--div);font-size:.9rem;color:#888}
   </style>
 </head>
 <body>
@@ -32,8 +34,10 @@
   </nav>
 
   <main>
-    <!-- your live Formspree endpoint -->
-    <form action="https://formspree.io/f/xanoagql" method="POST">
+    <div id="success-msg">Thanks! Your message was sent ✅</div>
+
+    <!-- 1️⃣ Paste your endpoint in 'action' -->
+    <form id="contact-form" action="https://formspree.io/f/xanoagql" method="POST">
       <h2 style="margin-bottom:24px">Get in Touch</h2>
 
       <label for="name">Name</label>
@@ -45,13 +49,35 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="6" required></textarea>
 
-      <!-- bot-trap -->
+      <!-- honeypot -->
       <input type="text" name="_gotcha" style="display:none">
+
+      <!-- 2️⃣ enable this hidden input if you create a custom redirect rule in Formspree
+      <input type="hidden" name="_redirect" value="https://nothingserious.info/contact.html#thanks">
+      -->
 
       <button type="submit">Send Message</button>
     </form>
   </main>
 
   <footer>&copy; 2025 Nothing Serious LLC</footer>
+
+  <script>
+    /* in-page AJAX submit so the user stays on-site */
+    const form=document.getElementById('contact-form');
+    const success=document.getElementById('success-msg');
+    form.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const data=new FormData(form);
+      const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+      if(res.ok){
+        form.reset();
+        form.style.display='none';
+        success.style.display='block';
+      }else{
+        alert('Sorry, something went wrong. Please email us directly.');
+      }
+    });
+  </script>
 </body>
 </html>
