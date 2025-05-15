@@ -1,4 +1,4 @@
-elo<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,29 +6,16 @@ elo<!DOCTYPE html>
   <meta name="description" content="Nothing Serious LLC builds AI-powered mobile apps like Quests, the social-wellness challenge hub.">
   <link rel="canonical" href="https://nothingserious.info/">
 
-  <!-- Open Graph -->
+  <!-- Open Graph + Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nothingserious.info/">
   <meta property="og:title" content="Nothing Serious LLC">
   <meta property="og:description" content="Creating playful, purposeful mobile apps.">
   <meta property="og:image" content="https://nothingserious.info/assets/og-default.png">
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Nothing Serious LLC">
   <meta name="twitter:description" content="Creating playful, purposeful mobile apps.">
   <meta name="twitter:image" content="https://nothingserious.info/assets/og-default.png">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Nothing Serious LLC",
-    "url":"https://nothingserious.info",
-    "logo":"https://nothingserious.info/assets/quests-logo.png"
-  }
-  </script>
 
   <title>Nothing Serious LLC – Mobile App Development</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,18 +24,17 @@ elo<!DOCTYPE html>
 
   <style>
     :root{
-      --bg:#121212; --txt:#f5f5f5; --accent:#64b5f6;
+      --bg:#121212; --txt:#f5f5f5;
+      --accent:#3354ff;                    /* darker blue */
       --card:#1e1e1e; --div:#333;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);
-         display:flex;flex-direction:column;min-height:100vh;line-height:1.6;
-         animation:fadeIn 1s ease-in-out}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+         display:flex;flex-direction:column;min-height:100vh;line-height:1.6}
 
     /* ---------- nav ---------- */
     nav{padding:26px 0;text-align:center}
-    nav a{margin:0 14px;color:var(--txt);text-decoration:none;font-weight:600}
+    nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
     nav a:hover{color:var(--accent)}
 
     .container{width:90%;max-width:1000px;margin:0 auto;padding:40px 20px;flex:1}
@@ -64,8 +50,10 @@ elo<!DOCTYPE html>
     .app-logo{width:120px;height:120px;border-radius:12px;object-fit:cover;flex:0 0 auto}
     .app h3{font-size:1.55rem;margin:0 0 6px}
 
-    footer{text-align:center;padding:34px 15px;border-top:1px solid var(--div);font-size:.9rem;color:#888}
-    .foot-nav a{margin:0 14px;color:var(--txt);text-decoration:none;font-weight:600}
+    /* ---------- footer ---------- */
+    footer{padding:46px 15px 36px;border-top:1px solid var(--div);margin-top:auto;text-align:center}
+    footer p{margin-bottom:18px;font-size:.95rem;color:#bbb}
+    .foot-nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
     .foot-nav a:hover{color:var(--accent)}
   </style>
 </head>
@@ -75,9 +63,6 @@ elo<!DOCTYPE html>
     <a href="/">Home</a>
     <a href="/quests.html">Quests</a>
     <a href="/contact.html">Contact</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
   </nav>
 
   <div class="container">
@@ -99,7 +84,7 @@ elo<!DOCTYPE html>
   </div>
 
   <footer>
-    &copy; 2025 Nothing Serious LLC
+    <p>&copy; 2025 Nothing Serious LLC</p>
     <div class="foot-nav">
       <a href="/">Home</a>
       <a href="/quests.html">Quests</a>
