@@ -4,134 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Nothing Serious LLC creates innovative AI-powered mobile applications and games with clean, modern design.">
-    <title>Nothing Serious LLC - Mobile App Development</title>
+    <title>Nothing Serious LLC – Mobile App Development</title>
+
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --bg-color: #121212;
-            --text-color: #f5f5f5;
-            --accent-color: #64b5f6;
-            --secondary-bg: #1e1e1e;
-            --divider-color: #333;
+        :root{
+            --bg-color:#121212;
+            --text-color:#f5f5f5;
+            --accent-color:#64b5f6;
+            --secondary-bg:#1e1e1e;
+            --divider-color:#333;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{
+            font-family:'Inter',sans-serif;
+            line-height:1.6;
+            background:var(--bg-color);
+            color:var(--text-color);
+            animation:fadeIn 1s ease-in-out;
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
         }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            animation: fadeIn 1s ease-in-out;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+        .container{width:90%;max-width:1000px;margin:0 auto;padding:60px 20px;flex:1}
+
+        /* ---------- header ---------- */
+        header{text-align:center;margin-bottom:60px}
+        .logo{font-size:2.5rem;font-weight:700;margin-bottom:20px;color:var(--text-color);display:inline-block}
+
+        /* ---------- section animations ---------- */
+        section{margin-bottom:60px;opacity:0;transform:translateY(20px);animation:slideUp 0.5s ease-out forwards}
+        @keyframes slideUp{to{opacity:1;transform:translateY(0)}}
+        section:nth-child(2){animation-delay:0.2s}
+        section:nth-child(3){animation-delay:0.4s}
+
+        h2{font-size:1.8rem;font-weight:600;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--divider-color)}
+        p{margin-bottom:20px;font-weight:300;font-size:1.1rem}
+
+        /* ---------- app card ---------- */
+        .app{
+            display:flex;               /* NEW */
+            gap:16px;                   /* NEW */
+            align-items:center;         /* NEW */
+            padding:20px;
+            background:var(--secondary-bg);
+            border-radius:8px;
+            margin-bottom:20px;
+            transition:transform 0.3s ease;
+            text-decoration:none;       /* NEW – whole card clickable */
+            color:inherit;              /* NEW – keep white text */
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .app:hover{transform:translateY(-5px)}
+        .app-logo{                     /* NEW */
+            width:64px;height:64px;
+            flex:0 0 auto;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            flex: 1;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-color);
-            display: inline-block;
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #ccc;
-        }
-        
-        section {
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideUp 0.5s ease-out forwards;
-        }
-        
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.4s; }
-        
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--divider-color);
-        }
-        
-        p {
-            margin-bottom: 20px;
-            font-weight: 300;
-            font-size: 1.1rem;
-        }
-        
-        .app {
-            padding: 20px;
-            background-color: var(--secondary-bg);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .app:hover {
-            transform: translateY(-5px);
-        }
-        
-        .app h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #888;
-            border-top: 1px solid var(--divider-color);
-            margin-top: auto;
-        }
-        
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2rem;
-            }
-            
-            header p {
-                font-size: 1rem;
-            }
+        .app h3{font-size:1.4rem;margin-bottom:10px;color:var(--text-color)}
+
+        footer{text-align:center;padding:20px;font-size:0.9rem;color:#888;border-top:1px solid var(--divider-color);margin-top:auto}
+
+        /* responsive tweak */
+        @media(max-width:768px){
+            .logo{font-size:2rem}
+            header p{font-size:1rem}
         }
     </style>
 </head>
@@ -140,42 +81,39 @@
         <header>
             <div class="logo">Nothing Serious LLC</div>
         </header>
-        
+
         <section id="about">
             <h2>About Us</h2>
-            <p>We're friends who turned our passion project into a business, creating innovative mobile apps and games powered by AI technology.</p>
+            <p>We’re friends who turned a passion project into a studio, creating innovative mobile apps and games powered by AI.</p>
         </section>
-        
+
         <section id="apps">
             <h2>Our Apps</h2>
-            <div class="app">
-                <h3>Quests</h3>
-                <p>A social challenge app where users participate in and create challenges for friends. Coming soon!</p>
-            </div>
+
+            <!-- Quests card – promoted from “coming soon” -->
+            <a class="app" href="/quests.html">
+                <img src="assets/quests-logo.svg" alt="Quests logo" class="app-logo">
+                <div>
+                    <h3>Quests</h3>
+                    <p>The social-wellness challenge hub. Track, share, and conquer goals with friends.</p>
+                </div>
+            </a>
         </section>
     </div>
-    
-    <footer>
-        &copy; 2025 Nothing Serious LLC. All rights reserved.
-    </footer>
 
+    <footer>&copy; 2025 Nothing Serious LLC. All rights reserved.</footer>
+
+    <!-- simple fade-in JS already here; keep it -->
     <script>
-        // Animate sections as they come into view
-        const sections = document.querySelectorAll('section');
-        
-        function checkSections() {
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (sectionTop < windowHeight * 0.8) {
-                    section.style.animation = 'slideUp 0.5s ease-out forwards';
-                }
+        const sections=document.querySelectorAll('section');
+        function checkSections(){
+            sections.forEach(s=>{
+                const top=s.getBoundingClientRect().top;
+                if(top<window.innerHeight*0.8){s.style.animation='slideUp 0.5s ease-out forwards'}
             });
         }
-        
-        window.addEventListener('scroll', checkSections);
-        window.addEventListener('load', checkSections);
+        window.addEventListener('scroll',checkSections);
+        window.addEventListener('load',checkSections);
     </script>
 </body>
 </html>
