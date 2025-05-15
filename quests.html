@@ -11,21 +11,24 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
 
-    /* simple nav shared across pages */
-    nav{padding:24px;text-align:center}
-    nav a{margin:0 12px;color:var(--txt);text-decoration:none;font-weight:600}
+    nav{padding:24px 0;text-align:center}
+    nav a{margin:0 12px;color:var(--accent);text-decoration:none;font-weight:600}
 
     /* hero */
-    .hero{padding:80px 5% 40px;text-align:center}
-    .hero img{width:120px;margin-bottom:24px}
+    .hero{padding:60px 5% 40px;text-align:center}
+    .hero img{width:160px;margin-bottom:28px}
     .cta-btn{display:inline-block;margin-top:32px;padding:14px 32px;background:var(--accent);color:var(--bg);border-radius:6px;font-weight:600;text-decoration:none}
 
-    /* content */
-    section{padding:60px 5%;max-width:900px;margin:0 auto}
+    /* sections */
+    section{padding:50px 5%;max-width:900px;margin:0 auto}
     h2{font-size:1.8rem;margin-bottom:18px;border-bottom:1px solid var(--div);padding-bottom:8px}
     .card{background:var(--card);padding:24px;border-radius:8px;margin-bottom:24px}
 
-    footer{text-align:center;padding:20px;color:#888;border-top:1px solid var(--div);margin-top:auto}
+    /* screenshots grid */
+    .screens{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .screens img{width:100%;border-radius:8px;background:#0004;object-fit:cover}
+
+    footer{text-align:center;padding:25px;border-top:1px solid var(--div);margin-top:auto;font-size:.9rem;color:#888}
   </style>
 </head>
 <body>
@@ -37,10 +40,10 @@
   </nav>
 
   <header class="hero">
-    <img src="assets/Quests Logo.png" alt="Quests logo">
+    <img src="assets/quests-logo.png" alt="Quests logo">
     <h1>Quests</h1>
     <p>Turn everyday goals into epic, shareable adventures with friends.</p>
-    <!-- swap # with App Store / Play links when ready -->
+    <!-- swap # with App Store / Play links when live -->
     <a href="#" class="cta-btn">Join the Beta</a>
   </header>
 
@@ -60,6 +63,16 @@
     <div class="card">
       <h3>Social Leaderboard</h3>
       <p>Friendly competition drives accountability. Cheer, roast, or gift badges.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>App Screenshots</h2>
+    <!-- replace the three placeholders with real images when you have them -->
+    <div class="screens">
+      <img src="assets/screen-1.png" alt="Quests screenshot 1">
+      <img src="assets/screen-2.png" alt="Quests screenshot 2">
+      <img src="assets/screen-3.png" alt="Quests screenshot 3">
     </div>
   </section>
 
