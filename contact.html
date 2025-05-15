@@ -11,8 +11,8 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
 
-    nav{padding:24px;text-align:center}
-    nav a{margin:0 12px;color:var(--txt);text-decoration:none;font-weight:600}
+    nav{padding:24px 0;text-align:center}
+    nav a{margin:0 12px;color:var(--accent);text-decoration:none;font-weight:600}
 
     main{flex:1;display:flex;justify-content:center;align-items:center;padding:60px 5%}
     form{background:var(--card);padding:40px;border-radius:8px;width:100%;max-width:500px}
@@ -20,7 +20,7 @@
     input,textarea{width:100%;padding:12px;margin-bottom:20px;background:#181818;border:1px solid var(--div);border-radius:4px;color:var(--txt)}
     button{background:var(--accent);color:var(--bg);padding:14px 24px;border:none;border-radius:6px;font-weight:600;cursor:pointer}
 
-    footer{text-align:center;padding:20px;color:#888;border-top:1px solid var(--div)}
+    footer{text-align:center;padding:25px;border-top:1px solid var(--div);font-size:.9rem;color:#888}
   </style>
 </head>
 <body>
@@ -32,7 +32,9 @@
   </nav>
 
   <main>
-    <!-- 1️⃣ replace the value below with your Formspree endpoint -->
+    <!-- 1️⃣  Sign up at formspree.io, create a new form,
+         2️⃣  copy its endpoint (looks like /f/abcde123),
+         3️⃣  paste it below -->
     <form action="https://formspree.io/f/REPLACE_ME" method="POST">
       <h2 style="margin-bottom:24px">Get in Touch</h2>
 
