@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quests – Nothing Serious LLC</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#121212;--txt:#f5f5f5;--accent:#64b5f6;--card:#1e1e1e;--div:#333;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
+
+    /* simple nav shared across pages */
+    nav{padding:24px;text-align:center}
+    nav a{margin:0 12px;color:var(--txt);text-decoration:none;font-weight:600}
+
+    /* hero */
+    .hero{padding:80px 5% 40px;text-align:center}
+    .hero img{width:120px;margin-bottom:24px}
+    .cta-btn{display:inline-block;margin-top:32px;padding:14px 32px;background:var(--accent);color:var(--bg);border-radius:6px;font-weight:600;text-decoration:none}
+
+    /* content */
+    section{padding:60px 5%;max-width:900px;margin:0 auto}
+    h2{font-size:1.8rem;margin-bottom:18px;border-bottom:1px solid var(--div);padding-bottom:8px}
+    .card{background:var(--card);padding:24px;border-radius:8px;margin-bottom:24px}
+
+    footer{text-align:center;padding:20px;color:#888;border-top:1px solid var(--div);margin-top:auto}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/quests.html">Quests</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <img src="assets/quests-logo.svg" alt="Quests logo">
+    <h1>Quests</h1>
+    <p>Turn everyday goals into epic, shareable adventures with friends.</p>
+    <!-- swap # with App Store / Play links when ready -->
+    <a href="#" class="cta-btn">Join the Beta</a>
+  </header>
+
+  <section>
+    <h2>Key Features</h2>
+
+    <div class="card">
+      <h3>Create or Join Challenges</h3>
+      <p>Kick-off Dry January, 10-K-Steps, or your own custom quest in seconds.</p>
+    </div>
+
+    <div class="card">
+      <h3>Daily Check-ins</h3>
+      <p>Streak counter, media proof, and lightweight reflections keep everyone honest.</p>
+    </div>
+
+    <div class="card">
+      <h3>Social Leaderboard</h3>
+      <p>Friendly competition drives accountability. Cheer, roast, or gift badges.</p>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Nothing Serious LLC</footer>
+</body>
+</html>
