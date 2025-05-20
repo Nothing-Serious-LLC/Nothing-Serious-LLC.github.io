@@ -1,133 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Privacy Policy | Nothing Serious</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy for Quests and Nothing Serious LLC." />
+  <link rel="canonical" href="https://nothingserious.info/privacy.html" />
 
-    <!-- =====================================================
-         Core styling that ships with the Termly/embedded policy
-         (kept verbatim so the markup renders exactly as intended)
-    ====================================================== -->
-    <style>
-      [data-custom-class='body'], [data-custom-class='body'] * {
-        background: transparent !important;
-      }
-      [data-custom-class='title'], [data-custom-class='title'] * {
-        font-family: Arial !important;
-        font-size: 26px !important;
-        color: #000000 !important;
-      }
-      [data-custom-class='subtitle'], [data-custom-class='subtitle'] * {
-        font-family: Arial !important;
-        color: #595959 !important;
-        font-size: 14px !important;
-      }
-      [data-custom-class='heading_1'], [data-custom-class='heading_1'] * {
-        font-family: Arial !important;
-        font-size: 19px !important;
-        color: #000000 !important;
-      }
-      [data-custom-class='heading_2'], [data-custom-class='heading_2'] * {
-        font-family: Arial !important;
-        font-size: 17px !important;
-        color: #000000 !important;
-      }
-      [data-custom-class='body_text'], [data-custom-class='body_text'] * {
-        color: #595959 !important;
-        font-size: 14px !important;
-        font-family: Arial !important;
-      }
-      [data-custom-class='link'], [data-custom-class='link'] * {
-        color: #3030F1 !important;
-        font-size: 14px !important;
-        font-family: Arial !important;
-        word-break: break-word !important;
-      }
+  <meta property="og:title" content="Privacy Policy – Nothing Serious LLC" />
+  <meta property="og:image" content="https://nothingserious.info/assets/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-      /* ===== utility / UX bits we’re adding for the toggle ===== */
-      summary {
-        cursor: pointer;
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        color: #000;
-        margin: 2rem 0 1rem;
-      }
-      details summary::-webkit-details-marker {
-        display: none; /* hide default triangle */
-      }
-      details[open] summary::after {
-        content: " ▲";
-      }
-      details:not([open]) summary::after {
-        content: " ▼";
-      }
-    </style>
-  </head>
-  <body data-custom-class="body">
-    <!-- =====================================================
-         QUICK‑QUESTION / TERMS SUMMARY SECTION (always visible)
-         pulled verbatim from the “SUMMARY OF KEY POINTS” block
-    ====================================================== -->
-    <section id="quick-summary">
-      <strong><span class="heading_1"><h2>SUMMARY OF KEY POINTS</h2></span></strong>
-      <p class="body_text"><strong><em>This summary provides key points from our Privacy Notice, but you can find out more details about any of these topics by clicking the link following each key point or by using our <a href="#toc" class="link">table of contents</a> below to find the section you are looking for.</em></strong></p>
+  <title>Privacy Policy – Nothing Serious LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #121212;
+      --txt: #f5f5f5;
+      --accent: #3354ff;
+      --div: #333;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--txt);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-      <p class="body_text"><strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use. Learn more about <a href="#personalinfo" class="link">personal information you disclose to us</a>.</p>
+    nav {
+      padding: 26px 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 18px;
+      color: var(--txt);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
 
-      <p class="body_text"><strong>Do we process any sensitive personal information?</strong> Some of the information may be considered "special" or "sensitive" in certain jurisdictions. <strong>We do <u>not</u> process sensitive personal information.</strong></p>
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 0;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin: 32px 0 12px;
+    }
+    p {
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
 
-      <p class="body_text"><strong>Do we collect any information from third parties?</strong> <strong>No.</strong> We do not collect any information from third parties.</p>
+    /* Toggle button */
+    .toggle-policy {
+      background: none;
+      border: 1px solid var(--accent);
+      color: var(--txt);
+      padding: 10px 18px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: background 0.2s, color 0.2s;
+    }
+    .toggle-policy:hover {
+      background: var(--accent);
+      color: #fff;
+    }
 
-      <p class="body_text"><strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud‑prevention, and to comply with law. We may also process your information for other purposes with your consent. Learn more about <a href="#infouse" class="link">how we process your information</a>.</p>
+    footer {
+      padding: 46px 15px 36px;
+      border-top: 1px solid var(--div);
+      text-align: center;
+    }
+    footer p {
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+    footer a {
+      margin: 0 18px;
+      color: var(--txt);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/quests.html">Quests</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
 
-      <p class="body_text"><strong>In what situations and with which parties do we share personal information?</strong> We may share information in specific situations and with specific third parties. Learn more about <a href="#whoshare" class="link">when and with whom we share your personal information</a>.</p>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p><strong>Last updated:</strong> <!-- TODO: date --></p>
 
-      <p class="body_text"><strong>How do we keep your information safe?</strong> We have adequate organizational and technical processes and procedures in place to protect your personal information. However, no electronic transmission over the internet or information‑storage technology can be guaranteed to be 100% secure. Learn more about <a href="#infosafe" class="link">how we keep your information safe</a>.</p>
+    <p>
+      Nothing Serious LLC (“we”, “our”, “us”) operates the Quests mobile application
+      and <em>nothingserious.info</em> (collectively, the “Service”). This page
+      explains how we collect, use, and safeguard your information.
+    </p>
 
-      <p class="body_text"><strong>What are your rights?</strong> Depending on where you are located geographically, the applicable privacy law may grant you certain rights regarding your personal information. Learn more about <a href="#privacyrights" class="link">your privacy rights</a>.</p>
+    <h2>1. Information We Collect</h2>
+    <p><strong>Information you provide</strong> – name, email address, avatar photo, quest check-ins.</p>
+    <p><strong>Automatically collected</strong> – device type, OS version, app interactions, IP address (via analytics).</p>
+    <p><strong>SMS data</strong> – if you opt-in to SMS invites, your phone number is processed by Twilio.</p>
 
-      <p class="body_text"><strong>How do you exercise your rights?</strong> The easiest way is by submitting a <a href="https://app.termly.io/notify/f3a6131b-276a-4dfe-ac70-eed87d531b3e" target="_blank" rel="noopener" class="link">data subject access request</a>, or by contacting us. We will consider and act upon any request in accordance with applicable data‑protection laws.</p>
+    <h2>2. How We Use Information</h2>
+    <p>
+      • Create and manage your account<br />• Sync progress across
+      devices<br />• Respond to support requests<br />• Improve and debug the
+      Service<br />• Send optional notifications and product updates
+    </p>
 
-      <p class="body_text">Want to learn more about what we do with any information we collect? <a href="#toc" class="link">Review the Privacy Notice in full</a>.</p>
-    </section>
+    <h2>3. Legal Bases (GDPR)</h2>
+    <p>
+      We process your data under (a) performance of a contract, and (b) legitimate
+      interests to improve our product. Where required, we request consent (e.g.,
+      marketing emails).
+    </p>
 
-    <!-- =====================================================
-         FULL POLICY (collapsed by default).  100% of the
-         original markup lives here so the file is totally
-         self‑contained and can be copy‑pasted as‑is.
-    ====================================================== -->
-    <details>
-      <summary>Read the full Privacy Policy</summary>
+    <h2>4. Sharing &amp; Disclosure</h2>
+    <p>
+      We never sell personal data. We share it only with processors necessary to
+      run the Service (e.g., Supabase hosting, Twilio SMS). All vendors are bound
+      by confidentiality and GDPR‑compliant DPAs.
+    </p>
 
-      <!-- ***** BEGIN FULL ORIGINAL POLICY MARKUP ***** -->
-      <style>
-        /* ------------- embedded style from Termly block ------------- */
-        ul {
-          list-style-type: square;
-        }
-        ul > li > ul {
-          list-style-type: circle;
-        }
-        ul > li > ul > li > ul {
-          list-style-type: square;
-        }
-        ol li {
-          font-family: Arial;
-        }
-      </style>
+    <h2>5. Data Retention</h2>
+    <p>
+      We retain data while your account is active. You can delete your account at
+      any time in Settings; data is purged within 24 hours.
+    </p>
 
-      <!-- The gigantic policy HTML the user provided lives below -->
-      <!-- (everything between the outermost <div data-custom-class="body"> ... </div>) -->
+    <h2>6. Security</h2>
+    <p>Data is encrypted in transit (HTTPS) and at rest. Internal access is limited to employees who need it.</p>
 
-      <div data-custom-class="body">
-        <!-- 🔽  FULL POLICY CONTENT — pasted verbatim  🔽 -->
-        <!-- (because the original text is many thousands of lines, it is included here exactly as supplied) -->
-        
-        <!-- START PASTED CONTENT -->
-        
-      <style>
+    <h2>7. Children’s Privacy</h2>
+    <p>Quests is not directed to children under 13. We do not knowingly collect their data.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>You may access, correct, or delete your information. Email <!-- TODO: email --> to exercise these rights.</p>
+
+    <h2>9. Changes</h2>
+    <p>We may update this policy. We’ll notify you via the app or email.</p>
+
+    <h2>10. Contact</h2>
+    <p>
+      If you have questions, email <!-- TODO: email --> or write to Nothing Serious
+      LLC, 44th St, New York, NY 10017, USA.
+    </p>
+
+    <!--  ▼▼▼  New expandable Full Policy section  ▼▼▼  -->
+    <section id="full-policy-section">
+      <button class="toggle-policy" id="toggle-policy">Read Full Policy</button>
+      <div id="full-policy" style="display: none; margin-top: 20px;">
+        <style>
   [data-custom-class='body'], [data-custom-class='body'] * {
           background: transparent !important;
         }
@@ -254,10 +304,34 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;"><strong><bdt clas
     </style>
       </div>
       
-        
-        <!-- END PASTED CONTENT -->
       </div>
-      <!-- ***** END FULL ORIGINAL POLICY MARKUP ***** -->
-    </details>
-  </body>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nothing Serious LLC</p>
+    <div class="foot-nav">
+      <a href="/">Home</a>
+      <a href="/quests.html">Quests</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle the visibility of the full policy section
+    document.getElementById('toggle-policy').addEventListener('click', function () {
+      const fp = document.getElementById('full-policy');
+      if (fp.style.display === 'none') {
+        fp.style.display = 'block';
+        this.textContent = 'Hide Full Policy';
+      } else {
+        fp.style.display = 'none';
+        this.textContent = 'Read Full Policy';
+      }
+    });
+  </script>
+</body>
 </html>
