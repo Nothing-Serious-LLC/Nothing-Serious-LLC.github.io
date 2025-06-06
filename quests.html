@@ -172,6 +172,44 @@
   box-shadow: 0 6px 20px rgba(51, 84, 255, 0.3);
 }
 
+@media (max-width: 768px) {
+  .cta-btn {
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent), #5a7fff);
+    box-shadow: 0 4px 20px rgba(51, 84, 255, 0.25);
+  }
+  
+  .cta-btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Beta badge */
+.beta-badge {
+  display: inline-block;
+  background: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .beta-badge {
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0;
+  }
+}
+
 /* Screenshots section - improved */
 .screenshots-section {
   padding: 50px 5%;
@@ -184,12 +222,60 @@
   .screenshots-section {
     overflow: visible; /* Allow screenshots to be fully visible */
   }
+  
+  /* Subtle hint animation on first load */
+  .screenshots-wrapper {
+    animation: scrollHint 2s ease-out 0.5s;
+  }
+}
+
+@keyframes scrollHint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
 }
 
 .screenshots-container {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+}
+
+/* Scroll indicator dots */
+.scroll-indicators {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .scroll-indicators {
+    display: flex;
+  }
+}
+
+.scroll-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--txt-secondary);
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Larger touch target */
+.scroll-dot::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+
+.scroll-dot.active {
+  opacity: 1;
+  background: var(--accent);
+  transform: scale(1.2);
 }
 
 .screenshots-wrapper {
@@ -319,6 +405,32 @@
   line-height: 1.6;
 }
 
+@media (max-width: 768px) {
+  .feature-card {
+    padding: 30px 25px;
+    text-align: left;
+  }
+  
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    margin: 0 0 16px 0;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--txt-secondary);
+  }
+}
+
 /* What's New section - styled like features */
 .whats-new {
   padding: 60px 5%;
@@ -416,9 +528,7 @@
     gap: 20px;
   }
   
-  .feature-card {
-    padding: 25px;
-  }
+
 }
 
 /* Hide swipe hint on desktop */
@@ -478,9 +588,11 @@
     <div class="app-hero-content">
       <img src="assets/quests-logo.png" alt="Quests app icon" class="app-icon">
       <div class="app-info">
-        <h1>Quests</h1>
+        <h1>Quests<span class="beta-badge">BETA</span></h1>
         <p class="app-tagline">Challenge yourself. Improve together.</p>
-        <a href="https://testflight.apple.com/join/rqpveCgJ" class="cta-btn" target="_blank" rel="noopener noreferrer">Join the Beta</a>
+        <a href="https://testflight.apple.com/join/rqpveCgJ" class="cta-btn" target="_blank" rel="noopener noreferrer">
+          <span>Join the Beta</span>
+        </a>
       </div>
     </div>
   </section>
@@ -504,6 +616,13 @@
         <div class="screenshot">
           <img src="assets/SC5.png" alt="Profile and achievements" loading="lazy">
         </div>
+      </div>
+      <div class="scroll-indicators">
+        <span class="scroll-dot active"></span>
+        <span class="scroll-dot"></span>
+        <span class="scroll-dot"></span>
+        <span class="scroll-dot"></span>
+        <span class="scroll-dot"></span>
       </div>
     </div>
   </section>
@@ -614,11 +733,40 @@ document.addEventListener('DOMContentLoaded', function() {
       rootMargin: '0px 0px -20px 0px'
     });
 
-    // Observe all feature cards
-    document.querySelectorAll('.feature-card').forEach(card => {
-      cardObserver.observe(card);
+      // Observe all feature cards
+  document.querySelectorAll('.feature-card').forEach(card => {
+    cardObserver.observe(card);
+  });
+}
+
+// Screenshot scroll indicators
+const screenshotsWrapper = document.querySelector('.screenshots-wrapper');
+const scrollDots = document.querySelectorAll('.scroll-dot');
+
+if (screenshotsWrapper && scrollDots.length > 0) {
+  screenshotsWrapper.addEventListener('scroll', () => {
+    const scrollLeft = screenshotsWrapper.scrollLeft;
+    const itemWidth = 320; // Screenshot width on mobile
+    const gap = 20;
+    const activeIndex = Math.round(scrollLeft / (itemWidth + gap));
+    
+    scrollDots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeIndex);
     });
-  }
+  });
+  
+  // Click dots to scroll
+  scrollDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      const itemWidth = 320;
+      const gap = 20;
+      screenshotsWrapper.scrollTo({
+        left: index * (itemWidth + gap),
+        behavior: 'smooth'
+      });
+    });
+  });
+}
 });
 </script>
 </body>
