@@ -304,7 +304,7 @@
 
 @media (max-width: 768px) {
   .screenshot {
-    flex: 0 0 320px; /* Bigger screenshots on mobile */
+    flex: 0 0 280px; /* Slightly smaller for better proportions */
   }
 }
 
@@ -408,14 +408,14 @@
 @media (max-width: 768px) {
   .feature-card {
     padding: 30px 25px;
-    text-align: left;
+    text-align: center; /* Keep centered on mobile */
   }
   
   .feature-icon {
     width: 48px;
     height: 48px;
     font-size: 24px;
-    margin: 0 0 16px 0;
+    margin: 0 auto 16px; /* Center the icon */
   }
   
   .feature-card h3 {
@@ -746,7 +746,7 @@ const scrollDots = document.querySelectorAll('.scroll-dot');
 if (screenshotsWrapper && scrollDots.length > 0) {
   screenshotsWrapper.addEventListener('scroll', () => {
     const scrollLeft = screenshotsWrapper.scrollLeft;
-    const itemWidth = 320; // Screenshot width on mobile
+    const itemWidth = 290; // Updated screenshot width on mobile
     const gap = 20;
     const activeIndex = Math.round(scrollLeft / (itemWidth + gap));
     
@@ -758,7 +758,7 @@ if (screenshotsWrapper && scrollDots.length > 0) {
   // Click dots to scroll
   scrollDots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-      const itemWidth = 320;
+      const itemWidth = 290;
       const gap = 20;
       screenshotsWrapper.scrollTo({
         left: index * (itemWidth + gap),
