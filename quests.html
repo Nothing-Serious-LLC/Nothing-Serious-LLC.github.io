@@ -5,14 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description" content="Learn about Quests – a social-wellness app by Nothing Serious LLC.">
+  <meta name="description" content="Quests - The social-wellness challenge app. Challenge yourself. Improve together. Join challenges, track progress, and compete with friends.">
   <link rel="canonical" href="https://nothingserious.info/quests.html">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nothingserious.info/quests.html">
   <meta property="og:title" content="Quests – Social Wellness Challenges">
+  <meta property="og:description" content="Challenge yourself. Improve together. Join wellness challenges with friends and track your progress.">
   <meta property="og:image" content="https://nothingserious.info/assets/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quests – Social Wellness Challenges">
+  <meta name="twitter:description" content="Challenge yourself. Improve together. Join wellness challenges with friends and track your progress.">
+  <meta name="twitter:image" content="https://nothingserious.info/assets/og-default.png">
 
   <title>Quests – Nothing Serious LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -23,12 +30,11 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);
-         display:flex;flex-direction:column;min-height:100vh}
+         display:flex;flex-direction:column;min-height:100vh;line-height:1.6}
 
-```
 /* nav */
 nav{padding:26px 0;text-align:center}
-nav a{margin:0 20px;color:var(--txt);text-decoration:none;font-weight:600;display:inline-block}
+nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
 nav a:hover{color:var(--accent)}
 
 /* hero */
@@ -52,40 +58,129 @@ section{padding:0 5% 70px}
 .feature h3{margin-bottom:12px;font-size:1.28rem}
 .feature p{margin:0;font-weight:300}
 
-/* carousel wrapper */
-.carousel-container{margin-top:50px;position:relative}
-
-/* nav buttons */
-.nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--accent);color:var(--bg);
-         border:none;width:42px;height:42px;border-radius:50%;font-size:1.35rem;cursor:pointer;opacity:.9;
-         display:flex;align-items:center;justify-content:center}
-.nav-btn:hover{opacity:1}
-.nav-btn.prev{left:-20px}
-.nav-btn.next{right:-20px}
-@media(max-width:600px){
-  .nav-btn{width:38px;height:38px;font-size:1.2rem}
-  .nav-btn.prev{left:-12px}
-  .nav-btn.next{right:-12px}
+/* screenshot gallery */
+.screenshot-section {
+  margin-top: 60px;
+  padding: 0;
 }
 
-/* screenshots carousel */
-.screens{display:flex;gap:18px;overflow-x:auto;padding-bottom:10px;
-         scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.screens::-webkit-scrollbar{display:none}
-.screens img{flex:0 0 48%;max-width:220px;border-radius:12px;background:#0004;object-fit:cover;
-             aspect-ratio:9/19;scroll-snap-align:start}
+.screenshot-gallery {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-/* Remove iOS page-indicator dots */
-@supports (-webkit-touch-callout: none) {
-  .screens {scrollbar-width:none;}
+/* Desktop: Grid layout */
+@media (min-width: 768px) {
+  .screens-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .screen-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .screen-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  
+  .screen-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 9/19;
+    object-fit: cover;
+  }
+  
+  /* Hide mobile-only controls on desktop */
+  .mobile-indicators,
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* Mobile: Swipeable carousel */
+@media (max-width: 767px) {
+  .screens-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 0 20px;
+  }
+  
+  .screens-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .screen-item {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+  
+  .screen-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 9/19;
+    object-fit: contain;
+    background: #000;
+  }
+  
+  /* Dot indicators */
+  .mobile-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding-bottom: 20px;
+  }
+  
+  .indicator-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--div);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .indicator-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--accent);
+  }
+  
+  /* Swipe hint */
+  .swipe-hint {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 16px;
+    font-weight: 300;
+  }
 }
 
 /* footer */
 footer{padding:46px 15px 36px;border-top:1px solid var(--div);margin-top:auto;text-align:center}
 footer p{margin-bottom:18px;font-size:.95rem;color:#bbb}
-footer a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
-footer a:hover{color:var(--accent)}
-```
+.foot-nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
+.foot-nav a:hover{color:var(--accent)}
 
   </style>
 </head>
@@ -116,25 +211,36 @@ footer a:hover{color:var(--accent)}
       </div>
       <div class="feature">
         <h3>Social Leaderboard</h3>
-        <p>Track consistency and compete with friends—because accountability is more fun with a little rivalry</p>
+        <p>Track consistency and compete with friends—because accountability is more fun with a little rivalry.</p>
       </div>
     </div>
+  </section>
 
-```
-<!-- Carousel -->
-<div class="carousel-container">
-  <button class="nav-btn prev" aria-label="Previous screenshots">&#x276E;</button>
-  <button class="nav-btn next" aria-label="Next screenshots">&#x276F;</button>
-  <div class="screens">
-    <img src="assets/SC1.png" alt="App screen 1">
-    <img src="assets/SC2.png" alt="App screen 2">
-    <img src="assets/SC3.png" alt="App screen 3">
-    <img src="assets/SC4.png" alt="App screen 4">
-    <img src="assets/SC5.png" alt="App screen 5">
-  </div>
-</div>
-```
-
+  <!-- Screenshot Gallery -->
+  <section class="screenshot-section">
+    <div class="screenshot-gallery">
+      <div class="screens-wrapper" id="screensWrapper">
+        <div class="screen-item">
+          <img src="assets/SC1.png" alt="Quests home screen showing active challenges" loading="lazy">
+        </div>
+        <div class="screen-item">
+          <img src="assets/SC2.png" alt="Daily check-in interface" loading="lazy">
+        </div>
+        <div class="screen-item">
+          <img src="assets/SC3.png" alt="Social leaderboard with friends" loading="lazy">
+        </div>
+        <div class="screen-item">
+          <img src="assets/SC4.png" alt="Create new quest interface" loading="lazy">
+        </div>
+        <div class="screen-item">
+          <img src="assets/SC5.png" alt="Profile and achievements view" loading="lazy">
+        </div>
+      </div>
+      
+      <!-- Mobile only: Dot indicators -->
+      <div class="mobile-indicators" id="indicators"></div>
+      <p class="swipe-hint">Swipe to explore</p>
+    </div>
   </section>
 
   <footer>
@@ -150,22 +256,51 @@ footer a:hover{color:var(--accent)}
   </footer>
 
   <script>
-    (function(){
-      const container=document.querySelector('.screens');
-      const prev=document.querySelector('.prev');
-      const next=document.querySelector('.next');
-      const gap=parseInt(getComputedStyle(container).gap)||18;
-
-      function getStep(){
-        const img=container.querySelector('img');
-        return img.offsetWidth+gap;
+    // Mobile carousel functionality
+    (function() {
+      if (window.innerWidth > 767) return; // Only run on mobile
+      
+      const wrapper = document.getElementById('screensWrapper');
+      const indicators = document.getElementById('indicators');
+      const items = wrapper.querySelectorAll('.screen-item');
+      
+      // Create indicator dots
+      items.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'indicator-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => scrollToSlide(index));
+        indicators.appendChild(dot);
+      });
+      
+      const dots = indicators.querySelectorAll('.indicator-dot');
+      
+      function scrollToSlide(index) {
+        const item = items[index];
+        wrapper.scrollTo({
+          left: item.offsetLeft - (wrapper.offsetWidth - item.offsetWidth) / 2,
+          behavior: 'smooth'
+        });
       }
-      prev.addEventListener('click',()=>{
-        container.scrollBy({left:-getStep(),behavior:'smooth'});
-      });
-      next.addEventListener('click',()=>{
-        container.scrollBy({left:getStep(),behavior:'smooth'});
-      });
+      
+      function updateIndicators() {
+        const scrollLeft = wrapper.scrollLeft;
+        const itemWidth = items[0].offsetWidth + 16; // including gap
+        const activeIndex = Math.round(scrollLeft / itemWidth);
+        
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === activeIndex);
+        });
+      }
+      
+      wrapper.addEventListener('scroll', updateIndicators);
+      
+      // Hide swipe hint after first interaction
+      wrapper.addEventListener('scroll', function hideHint() {
+        const hint = document.querySelector('.swipe-hint');
+        if (hint) hint.style.opacity = '0';
+        wrapper.removeEventListener('scroll', hideHint);
+      }, { once: true });
     })();
   </script>
 
