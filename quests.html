@@ -41,11 +41,84 @@
   margin: 0 auto;
 }
 
+/* Mobile viewport sections */
+@media (max-width: 768px) {
+  .app-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .screenshots-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  .features-section {
+    padding: 80px 20px;
+  }
+  
+  .whats-new {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+}
+
+/* Scroll animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for feature cards on mobile */
+@media (max-width: 768px) {
+  .feature-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .feature-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .feature-card:nth-child(1) { transition-delay: 0.1s; }
+  .feature-card:nth-child(2) { transition-delay: 0.2s; }
+  .feature-card:nth-child(3) { transition-delay: 0.3s; }
+  .feature-card:nth-child(4) { transition-delay: 0.4s; }
+}
+
 .app-hero-content {
   display: flex;
   gap: 40px;
   align-items: center;
   margin-bottom: 40px;
+  animation: heroSlideUp 0.8s ease-out;
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .app-icon {
@@ -146,27 +219,8 @@
   box-shadow: 0 12px 48px rgba(0,0,0,0.3);
 }
 
-/* Subtle fade effect on edges */
-.screenshots-container::before,
-.screenshots-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 5px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.screenshots-container::before {
-  left: 0;
-  background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
-}
-
-.screenshots-container::after {
-  right: 0;
-  background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
-}
+/* Subtle fade effect on edges - REMOVED */
+/* Gradient borders removed per user request */
 
 @keyframes fadeInUp {
   from {
@@ -332,11 +386,6 @@
   .feature-card {
     padding: 25px;
   }
-  
-  .screenshots-container::before,
-  .screenshots-container::after {
-    width: 10px;
-  }
 }
 
 /* Hide swipe hint on desktop */
@@ -392,7 +441,7 @@
   <div class="mobile-overlay"></div>
 
   <!-- App Store Style Hero -->
-  <section class="app-hero fade-in">
+  <section class="app-hero">
     <div class="app-hero-content">
       <img src="assets/quests-logo.png" alt="Quests app icon" class="app-icon">
       <div class="app-info">
@@ -404,7 +453,7 @@
   </section>
 
   <!-- Screenshots Section -->
-  <section class="screenshots-section">
+  <section class="screenshots-section scroll-animate">
     <div class="screenshots-container">
       <div class="screenshots-wrapper">
         <div class="screenshot">
@@ -427,12 +476,12 @@
   </section>
 
   <!-- Features Section with Icons -->
-  <section class="features-section">
+  <section class="features-section scroll-animate">
     <h2 style="font-size: 2rem; margin-bottom: 10px;">Key Features</h2>
     <p style="color: var(--txt-secondary); font-size: 1.1rem;">Everything you need to build better habits with friends</p>
     
     <div class="features-grid">
-      <div class="feature-card animate">
+      <div class="feature-card">
         <div class="feature-icon">
           <i class="mdi mdi-target"></i>
         </div>
@@ -440,7 +489,7 @@
         <p>Start Dry January, hit 10K steps a day, or launch your own quest with friends in seconds.</p>
       </div>
       
-      <div class="feature-card animate">
+      <div class="feature-card">
         <div class="feature-icon">
           <i class="mdi mdi-check-circle-outline"></i>
         </div>
@@ -448,7 +497,7 @@
         <p>Log your progress each day to stay on track and build powerful habits together.</p>
       </div>
       
-      <div class="feature-card animate">
+      <div class="feature-card">
         <div class="feature-icon">
           <i class="mdi mdi-trophy-outline"></i>
         </div>
@@ -456,7 +505,7 @@
         <p>Track consistency and compete with friends—because accountability is more fun with a little rivalry.</p>
       </div>
       
-      <div class="feature-card animate">
+      <div class="feature-card">
         <div class="feature-icon">
           <i class="mdi mdi-medal-outline"></i>
         </div>
@@ -467,7 +516,7 @@
   </section>
 
   <!-- What's New Section -->
-  <section class="whats-new animate">
+  <section class="whats-new scroll-animate">
     <h2>What's New</h2>
     <p class="whats-new-subtitle">Latest updates and improvements</p>
     
@@ -499,5 +548,45 @@
   </footer>
 
 <script src="/assets/global.js"></script>
+<script>
+// Intersection Observer for scroll animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Create observer for sections
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  // Observe all scroll-animate sections
+  document.querySelectorAll('.scroll-animate').forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+  // Special observer for feature cards on mobile
+  if (window.innerWidth <= 768) {
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe all feature cards
+    document.querySelectorAll('.feature-card').forEach(card => {
+      cardObserver.observe(card);
+    });
+  }
+});
+</script>
 </body>
 </html>
