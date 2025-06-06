@@ -44,26 +44,27 @@
 /* Mobile viewport sections */
 @media (max-width: 768px) {
   .app-hero {
-    min-height: 100vh;
+    min-height: calc(100vh - 60px); /* Reduce height to bring sections closer */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    padding-top: 40px; /* Further reduce top padding */
   }
   
   .screenshots-section {
-    min-height: 100vh;
+    min-height: calc(100vh - 40px); /* Slightly reduce to show next section sooner */
     display: flex;
     align-items: center;
     padding: 40px 20px;
   }
   
   .features-section {
-    padding: 80px 20px;
+    padding: 60px 20px; /* Reduce from 80px */
   }
   
   .whats-new {
-    min-height: 100vh;
+    min-height: calc(100vh - 40px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,8 +75,8 @@
 /* Scroll animations */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(30px); /* Reduced from 60px for quicker appearance */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .scroll-animate.in-view {
@@ -87,8 +88,8 @@
 @media (max-width: 768px) {
   .feature-card {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(20px); /* Reduced from 40px */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
   
   .feature-card.in-view {
@@ -96,10 +97,10 @@
     transform: translateY(0);
   }
   
-  .feature-card:nth-child(1) { transition-delay: 0.1s; }
-  .feature-card:nth-child(2) { transition-delay: 0.2s; }
-  .feature-card:nth-child(3) { transition-delay: 0.3s; }
-  .feature-card:nth-child(4) { transition-delay: 0.4s; }
+  .feature-card:nth-child(1) { transition-delay: 0.05s; }
+  .feature-card:nth-child(2) { transition-delay: 0.1s; }
+  .feature-card:nth-child(3) { transition-delay: 0.15s; }
+  .feature-card:nth-child(4) { transition-delay: 0.2s; }
 }
 
 .app-hero-content {
@@ -113,7 +114,7 @@
 @keyframes heroSlideUp {
   from {
     opacity: 0;
-    transform: translateY(80px);
+    transform: translateY(40px); /* Reduced from 80px for quicker entrance */
   }
   to {
     opacity: 1;
@@ -559,8 +560,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -20px 0px'
   });
 
   // Observe all scroll-animate sections
@@ -577,8 +578,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }, {
-      threshold: 0.2,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -20px 0px'
     });
 
     // Observe all feature cards
