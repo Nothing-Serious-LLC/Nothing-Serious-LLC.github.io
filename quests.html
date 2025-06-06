@@ -44,12 +44,11 @@
 /* Mobile viewport sections */
 @media (max-width: 768px) {
   .app-hero {
-    min-height: 100vh; /* Full viewport height to push screenshots down */
+    min-height: calc(100vh - 72px); /* 72px is est. nav height */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px; /* Remove vertical padding */
-    padding-top: 60px; /* Account for sticky nav */
+    padding: 0 20px;
     box-sizing: border-box;
   }
   
@@ -116,7 +115,6 @@
   .app-hero-content {
     margin-bottom: 0; /* Remove bottom margin on mobile */
     gap: 25px;
-    transform: translateY(-30px); /* Slight offset to account for nav and center better */
   }
 }
 
