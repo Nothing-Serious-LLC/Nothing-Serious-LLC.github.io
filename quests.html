@@ -27,8 +27,8 @@
 
 ```
 /* nav */
-nav{padding:26px 0;display:flex;justify-content:center;gap:32px}
-nav a{color:var(--txt);text-decoration:none;font-weight:600}
+nav{padding:26px 0;text-align:center}
+nav a{margin:0 20px;color:var(--txt);text-decoration:none;font-weight:600;display:inline-block}
 nav a:hover{color:var(--accent)}
 
 /* hero */
@@ -57,22 +57,22 @@ section{padding:0 5% 70px}
 
 /* nav buttons */
 .nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--accent);color:var(--bg);
-         border:none;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer;opacity:.9;
+         border:none;width:42px;height:42px;border-radius:50%;font-size:1.35rem;cursor:pointer;opacity:.9;
          display:flex;align-items:center;justify-content:center}
 .nav-btn:hover{opacity:1}
-.nav-btn.prev{left:-18px}
-.nav-btn.next{right:-18px}
+.nav-btn.prev{left:-20px}
+.nav-btn.next{right:-20px}
 @media(max-width:600px){
-  .nav-btn{width:34px;height:34px;font-size:1.1rem}
-  .nav-btn.prev{left:-10px}
-  .nav-btn.next{right:-10px}
+  .nav-btn{width:38px;height:38px;font-size:1.2rem}
+  .nav-btn.prev{left:-12px}
+  .nav-btn.next{right:-12px}
 }
 
 /* screenshots carousel */
-.screens{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;
+.screens{display:flex;gap:18px;overflow-x:auto;padding-bottom:10px;
          scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
 .screens::-webkit-scrollbar{display:none}
-.screens img{flex:0 0 45%;max-width:140px;border-radius:12px;background:#0004;object-fit:cover;
+.screens img{flex:0 0 48%;max-width:220px;border-radius:12px;background:#0004;object-fit:cover;
              aspect-ratio:9/19;scroll-snap-align:start}
 
 /* Remove iOS page-indicator dots */
@@ -154,7 +154,7 @@ footer a:hover{color:var(--accent)}
       const container=document.querySelector('.screens');
       const prev=document.querySelector('.prev');
       const next=document.querySelector('.next');
-      const gap=parseInt(getComputedStyle(container).gap)||16;
+      const gap=parseInt(getComputedStyle(container).gap)||18;
 
       function getStep(){
         const img=container.querySelector('img');
