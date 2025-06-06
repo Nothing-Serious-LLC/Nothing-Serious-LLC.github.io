@@ -189,26 +189,7 @@
   }
 }
 
-/* Beta badge */
-.beta-badge {
-  display: inline-block;
-  background: rgba(255, 152, 0, 0.1);
-  color: #ff9800;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-left: 10px;
-  vertical-align: middle;
-}
 
-@media (max-width: 768px) {
-  .beta-badge {
-    display: block;
-    width: fit-content;
-    margin: 10px auto 0;
-  }
-}
 
 /* Screenshots section - improved */
 .screenshots-section {
@@ -412,9 +393,9 @@
   }
   
   .feature-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
+    width: 52px;
+    height: 52px;
+    font-size: 26px; /* Slightly larger icons */
     margin: 0 auto 16px; /* Center the icon */
   }
   
@@ -588,7 +569,7 @@
     <div class="app-hero-content">
       <img src="assets/quests-logo.png" alt="Quests app icon" class="app-icon">
       <div class="app-info">
-        <h1>Quests<span class="beta-badge">BETA</span></h1>
+        <h1>Quests</h1>
         <p class="app-tagline">Challenge yourself. Improve together.</p>
         <a href="https://testflight.apple.com/join/rqpveCgJ" class="cta-btn" target="_blank" rel="noopener noreferrer">
           <span>Join the Beta</span>
@@ -675,7 +656,7 @@
     <div class="whats-new-content">
       <div class="version-info">
         <span class="version-number">Version 1.0 Beta</span>
-        <span class="version-date">January 2025</span>
+        <span class="version-date">June 2025</span>
       </div>
       <ul class="update-list">
         <li>Initial beta release with core challenge features</li>
@@ -746,7 +727,7 @@ const scrollDots = document.querySelectorAll('.scroll-dot');
 if (screenshotsWrapper && scrollDots.length > 0) {
   screenshotsWrapper.addEventListener('scroll', () => {
     const scrollLeft = screenshotsWrapper.scrollLeft;
-    const itemWidth = 290; // Updated screenshot width on mobile
+    const itemWidth = 280; // Updated screenshot width on mobile
     const gap = 20;
     const activeIndex = Math.round(scrollLeft / (itemWidth + gap));
     
@@ -758,7 +739,7 @@ if (screenshotsWrapper && scrollDots.length > 0) {
   // Click dots to scroll
   scrollDots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-      const itemWidth = 290;
+      const itemWidth = 280;
       const gap = 20;
       screenshotsWrapper.scrollTo({
         left: index * (itemWidth + gap),
