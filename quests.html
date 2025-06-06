@@ -48,7 +48,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px 60px 20px; /* Reduced top padding */
+    padding: 0 20px; /* Remove vertical padding */
+    padding-top: 60px; /* Account for sticky nav */
+    box-sizing: border-box;
   }
   
   .screenshots-section {
@@ -114,6 +116,7 @@
   .app-hero-content {
     margin-bottom: 0; /* Remove bottom margin on mobile */
     gap: 25px;
+    transform: translateY(-30px); /* Slight offset to account for nav and center better */
   }
 }
 
