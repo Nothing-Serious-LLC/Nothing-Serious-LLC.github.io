@@ -27,8 +27,8 @@
 
 ```
 /* nav */
-nav{padding:26px 0;text-align:center}
-nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
+nav{padding:26px 0;display:flex;justify-content:center;gap:32px}
+nav a{color:var(--txt);text-decoration:none;font-weight:600}
 nav a:hover{color:var(--accent)}
 
 /* hero */
@@ -52,12 +52,33 @@ section{padding:0 5% 70px}
 .feature h3{margin-bottom:12px;font-size:1.28rem}
 .feature p{margin:0;font-weight:300}
 
-/* screenshots carousel (two-up, swipeable) */
-.screens{margin-top:42px;display:flex;gap:24px;overflow-x:auto;padding-bottom:10px;
+/* carousel wrapper */
+.carousel-container{margin-top:50px;position:relative}
+
+/* nav buttons */
+.nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--accent);color:var(--bg);
+         border:none;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer;opacity:.9;
+         display:flex;align-items:center;justify-content:center}
+.nav-btn:hover{opacity:1}
+.nav-btn.prev{left:-18px}
+.nav-btn.next{right:-18px}
+@media(max-width:600px){
+  .nav-btn{width:34px;height:34px;font-size:1.1rem}
+  .nav-btn.prev{left:-10px}
+  .nav-btn.next{right:-10px}
+}
+
+/* screenshots carousel */
+.screens{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;
          scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
 .screens::-webkit-scrollbar{display:none}
-.screens img{flex:0 0 calc(50% - 12px);border-radius:12px;background:#0004;object-fit:cover;
+.screens img{flex:0 0 45%;max-width:140px;border-radius:12px;background:#0004;object-fit:cover;
              aspect-ratio:9/19;scroll-snap-align:start}
+
+/* Remove iOS page-indicator dots */
+@supports (-webkit-touch-callout: none) {
+  .screens {scrollbar-width:none;}
+}
 
 /* footer */
 footer{padding:46px 15px 36px;border-top:1px solid var(--div);margin-top:auto;text-align:center}
@@ -100,15 +121,17 @@ footer a:hover{color:var(--accent)}
     </div>
 
 ```
-<h2 style="font-size:1.85rem;margin:80px 0 28px;text-align:center">Sneak Peek</h2>
-
-<!-- Swipeable carousel shows 2 screens at a time -->
-<div class="screens">
-  <img src="assets/SC1.png" alt="App screen 1">
-  <img src="assets/SC2.png" alt="App screen 2">
-  <img src="assets/SC3.png" alt="App screen 3">
-  <img src="assets/SC4.png" alt="App screen 4">
-  <img src="assets/SC5.png" alt="App screen 5">
+<!-- Carousel -->
+<div class="carousel-container">
+  <button class="nav-btn prev" aria-label="Previous screenshots">&#x276E;</button>
+  <button class="nav-btn next" aria-label="Next screenshots">&#x276F;</button>
+  <div class="screens">
+    <img src="assets/SC1.png" alt="App screen 1">
+    <img src="assets/SC2.png" alt="App screen 2">
+    <img src="assets/SC3.png" alt="App screen 3">
+    <img src="assets/SC4.png" alt="App screen 4">
+    <img src="assets/SC5.png" alt="App screen 5">
+  </div>
 </div>
 ```
 
@@ -125,5 +148,26 @@ footer a:hover{color:var(--accent)}
       <a href="/terms.html">Terms</a>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      const container=document.querySelector('.screens');
+      const prev=document.querySelector('.prev');
+      const next=document.querySelector('.next');
+      const gap=parseInt(getComputedStyle(container).gap)||16;
+
+      function getStep(){
+        const img=container.querySelector('img');
+        return img.offsetWidth+gap;
+      }
+      prev.addEventListener('click',()=>{
+        container.scrollBy({left:-getStep(),behavior:'smooth'});
+      });
+      next.addEventListener('click',()=>{
+        container.scrollBy({left:getStep(),behavior:'smooth'});
+      });
+    })();
+  </script>
+
 </body>
 </html>
