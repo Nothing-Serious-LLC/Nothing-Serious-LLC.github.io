@@ -14,10 +14,99 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="global.css">
   <style>
-    main{flex:1;width:94%;max-width:1080px;margin:0 auto;padding:60px 0}
+    /* Page-specific styles */
+    main {
+      flex: 1;
+      width: 94%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 0;
+    }
 
-    /* make the white terms card readable on dark mode */
-    .terms-wrapper{background:#ffffff;color:#000000;border-radius:12px;padding:48px 30px;box-shadow:0 0 16px rgba(0,0,0,.25);overflow-x:auto}
+    /* Dark theme legal content styling */
+    .terms-wrapper {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 48px 30px;
+      overflow-x: auto;
+    }
+
+    /* Override Termly styles for dark theme */
+    .terms-wrapper [data-custom-class='body'], 
+    .terms-wrapper [data-custom-class='body'] * {
+      background: transparent !important;
+    }
+    
+    .terms-wrapper [data-custom-class='title'], 
+    .terms-wrapper [data-custom-class='title'] * {
+      font-family: Inter, Arial, sans-serif !important;
+      font-size: 26px !important;
+      color: #ffffff !important;
+    }
+    
+    .terms-wrapper [data-custom-class='subtitle'], 
+    .terms-wrapper [data-custom-class='subtitle'] * {
+      font-family: Inter, Arial, sans-serif !important;
+      color: #b0b0b0 !important;
+      font-size: 14px !important;
+    }
+    
+    .terms-wrapper [data-custom-class='heading_1'], 
+    .terms-wrapper [data-custom-class='heading_1'] * {
+      font-family: Inter, Arial, sans-serif !important;
+      font-size: 19px !important;
+      color: #ffffff !important;
+    }
+    
+    .terms-wrapper [data-custom-class='heading_2'], 
+    .terms-wrapper [data-custom-class='heading_2'] * {
+      font-family: Inter, Arial, sans-serif !important;
+      font-size: 17px !important;
+      color: #ffffff !important;
+    }
+    
+    .terms-wrapper [data-custom-class='body_text'], 
+    .terms-wrapper [data-custom-class='body_text'] * {
+      color: #d0d0d0 !important;
+      font-size: 14px !important;
+      font-family: Inter, Arial, sans-serif !important;
+    }
+    
+    .terms-wrapper [data-custom-class='link'], 
+    .terms-wrapper [data-custom-class='link'] * {
+      color: #86E3CE !important;
+      font-size: 14px !important;
+      font-family: Inter, Arial, sans-serif !important;
+      word-break: break-word !important;
+    }
+
+    .terms-wrapper h1, .terms-wrapper h2, .terms-wrapper h3 {
+      color: #ffffff;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .terms-wrapper ul {
+      list-style-type: square;
+      color: #d0d0d0;
+    }
+
+    .terms-wrapper li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Remove problematic MSO styles */
+    .terms-wrapper span[style*="mso-"] {
+      font-family: Inter, Arial, sans-serif !important;
+      color: #d0d0d0 !important;
+    }
+
+    @media (max-width: 768px) {
+      .terms-wrapper {
+        padding: 30px 20px;
+      }
+    }
   </style>
 </head>
 <body>
