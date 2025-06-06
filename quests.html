@@ -16,26 +16,19 @@
   <meta name="twitter:title" content="Quests – Social Wellness Challenges">
   <meta name="twitter:description" content="Challenge yourself. Improve together. Join wellness challenges with friends and track your progress.">
   <meta name="twitter:image" content="https://nothingserious.info/assets/og-default.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#3354ff">
 
   <title>Quests – Nothing Serious LLC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/global.css">
   <style>
-    :root{
-      --bg:#121212; --txt:#f5f5f5;
-      --accent:#3354ff;                         /* darker solid */
-      --grad-start:#3354ff; --grad-end:#2033b3; /* darker gradient */
-      --card:#1e1e1e; --div:#333;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);
-         display:flex;flex-direction:column;min-height:100vh;line-height:1.6}
-
-/* nav */
-nav{padding:26px 0;text-align:center}
-nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
-nav a:hover{color:var(--accent)}
+    /* Page-specific styles for Quests */
 
 /* hero */
 .hero{padding:80px 5% 60px;text-align:center;display:flex;flex-direction:column;align-items:center}
@@ -166,37 +159,74 @@ section{padding:0 5% 70px}
     background: var(--accent);
   }
   
-  /* Swipe hint */
-  .swipe-hint {
-    text-align: center;
-    color: #888;
-    font-size: 0.9rem;
-    margin-top: 16px;
-    font-weight: 300;
+          /* Swipe hint */
+    .swipe-hint {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 16px;
+      font-weight: 300;
+      display: block;
+    }
   }
-}
-
-/* footer */
-footer{padding:46px 15px 36px;border-top:1px solid var(--div);margin-top:auto;text-align:center}
-footer p{margin-bottom:18px;font-size:.95rem;color:#bbb}
-.foot-nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
-.foot-nav a:hover{color:var(--accent)}
+  
+  /* Hide swipe hint on desktop */
+  @media (min-width: 768px) {
+    .swipe-hint {
+      display: none;
+    }
+  }
 
   </style>
 </head>
 <body>
 
+  <!-- Enhanced Navigation -->
   <nav>
-    <a href="/">Home</a>
-    <a href="/quests.html">Quests</a>
-    <a href="/contact.html">Contact</a>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Nothing Serious</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/quests.html">Quests</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <span class="nav-logo">Nothing Serious</span>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/">Home</a>
+      <a href="/quests.html">Quests</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="mobile-overlay"></div>
 
   <header class="hero">
     <span class="badge"><img src="assets/quests-logo.png" alt="Quests app icon"></span>
     <h1>Quests</h1>
     <p>Challenge yourself. Improve together.</p>
-    <a href="#" class="cta-btn">Join the Beta</a>
+    <a href="https://testflight.apple.com/join/rqpveCgJ" class="cta-btn" target="_blank" rel="noopener noreferrer">Join the Beta</a>
   </header>
 
   <section>
@@ -299,10 +329,11 @@ footer p{margin-bottom:18px;font-size:.95rem;color:#bbb}
       wrapper.addEventListener('scroll', function hideHint() {
         const hint = document.querySelector('.swipe-hint');
         if (hint) hint.style.opacity = '0';
-        wrapper.removeEventListener('scroll', hideHint);
-      }, { once: true });
-    })();
-  </script>
+              wrapper.removeEventListener('scroll', hideHint);
+    }, { once: true });
+  })();
+</script>
 
+<script src="/assets/global.js"></script>
 </body>
 </html>

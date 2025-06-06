@@ -17,79 +17,209 @@
   <meta name="twitter:title" content="Nothing Serious LLC">
   <meta name="twitter:description" content="Creating playful, purposeful mobile apps.">
   <meta name="twitter:image" content="https://nothingserious.info/assets/og-default.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#3354ff">
 
   <title>Nothing Serious LLC – Mobile App Development</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="/assets/global.css">
+  
   <style>
-    :root{
-      --bg:#121212; --txt:#f5f5f5;
-      --accent:#3354ff;                    /* darker blue */
-      --card:#1e1e1e; --div:#333;
+    /* Page-specific styles */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);
-         display:flex;flex-direction:column;min-height:100vh;line-height:1.6}
-
-    /* ---------- nav ---------- */
-    nav{padding:26px 0;text-align:center}
-    nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
-    nav a:hover{color:var(--accent)}
-
-    .container{width:90%;max-width:1000px;margin:0 auto;padding:40px 20px;flex:1}
-
-    h2{font-size:1.9rem;font-weight:600;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--div)}
-    p{margin-bottom:20px;font-weight:300;font-size:1.1rem}
-
-    /* app card */
-    .app{display:flex;gap:24px;align-items:center;
-         background:var(--card);border-radius:10px;padding:28px;margin-bottom:20px;
-         text-decoration:none;color:inherit;transition:transform .3s}
-    .app:hover{transform:translateY(-4px)}
-    .app-logo{width:120px;height:120px;border-radius:12px;object-fit:cover;flex:0 0 auto}
-    .app h3{font-size:1.55rem;margin:0 0 6px}
-
-    /* ---------- footer ---------- */
-    footer{padding:46px 15px 36px;border-top:1px solid var(--div);margin-top:auto;text-align:center}
-    footer p{margin-bottom:18px;font-size:.95rem;color:#bbb}
-    .foot-nav a{margin:0 18px;color:var(--txt);text-decoration:none;font-weight:600}
-    .foot-nav a:hover{color:var(--accent)}
-
-    /* -------- mobile layout fix -------- */
-    @media (max-width:600px){
-      .app{flex-direction:column;text-align:center}
-      .app-logo{margin-bottom:16px}
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--txt) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--txt-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .section {
+      padding: 60px 0;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .app-card {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 30px;
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    .app-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+      transform: translateX(-100%);
+      transition: transform var(--transition-slow);
+    }
+    
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .app-card:hover::before {
+      transform: translateX(0);
+    }
+    
+    .app-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      object-fit: cover;
+      flex: 0 0 auto;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-base);
+    }
+    
+    .app-card:hover .app-logo {
+      transform: rotate(-5deg) scale(1.05);
+    }
+    
+    .app-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: 10px;
+      color: var(--txt);
+    }
+    
+    .app-content p {
+      font-size: 1.1rem;
+      color: var(--txt-secondary);
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .app-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
 <body>
-
+  <!-- Enhanced Navigation -->
   <nav>
-    <a href="/">Home</a>
-    <a href="/quests.html">Quests</a>
-    <a href="/contact.html">Contact</a>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Nothing Serious</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/quests.html">Quests</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </nav>
 
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <span class="nav-logo">Nothing Serious</span>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/">Home</a>
+      <a href="/quests.html">Quests</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="mobile-overlay"></div>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <div class="container">
+      <h1 class="animate">Nothing Serious LLC</h1>
+      <p class="animate">We're friends who turned a passion project into a development studio, creating innovative mobile apps and games powered by AI.</p>
+    </div>
+  </section>
+
   <div class="container">
-    <section id="about">
+    <!-- About Section -->
+    <section id="about" class="section animate">
       <h2>About Us</h2>
-      <p>We're friends who turned a passion project into a development studio, creating innovative mobile apps and games powered by AI.</p>
+      <p>We believe in building apps that make a difference. Our focus is on creating playful, purposeful experiences that help people improve their lives, one challenge at a time.</p>
     </section>
 
-    <section id="apps">
+    <!-- Apps Section -->
+    <section id="apps" class="section animate">
       <h2>Our Apps</h2>
-      <a class="app" href="/quests.html">
-        <img src="assets/quests-logo.png" alt="Quests app icon" class="app-logo">
-        <div>
+      <a class="app-card" href="/quests.html">
+        <img src="assets/quests-logo.png" alt="Quests app icon" class="app-logo" loading="lazy">
+        <div class="app-content">
           <h3>Quests</h3>
-          <p>The social-wellness challenge app. Challenge yourself. Improve together.</p>
+          <p>The social-wellness challenge app. Challenge yourself. Improve together. Join friends in daily wellness challenges and build better habits.</p>
         </div>
       </a>
     </section>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Nothing Serious LLC</p>
     <div class="foot-nav">
@@ -101,5 +231,7 @@
       <a href="/terms.html">Terms</a>
     </div>
   </footer>
+
+  <script src="/assets/global.js"></script>
 </body>
 </html>
