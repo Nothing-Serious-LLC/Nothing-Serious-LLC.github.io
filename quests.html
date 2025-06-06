@@ -7,6 +7,8 @@
 
   <meta name="description" content="Quests - The social-wellness challenge app. Challenge yourself. Improve together. Join challenges, track progress, and compete with friends.">
   <link rel="canonical" href="https://nothingserious.info/quests.html">
+  
+  <!-- Open Graph + Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nothingserious.info/quests.html">
   <meta property="og:title" content="Quests – Social Wellness Challenges">
@@ -30,152 +32,251 @@
   <style>
     /* Page-specific styles for Quests */
 
-/* hero */
-.hero{padding:80px 5% 60px;text-align:center;display:flex;flex-direction:column;align-items:center}
-.badge{
-  width:clamp(140px,30vw,220px);aspect-ratio:1/1;padding:6px;
-  border-radius:22%;background:linear-gradient(145deg,var(--grad-start),var(--grad-end));
-  box-shadow:0 8px 20px rgba(0,0,0,.38);display:inline-block
-}
-.badge img{width:100%;height:100%;border-radius:18%;object-fit:cover;background:#0f1a2e;display:block}
-.hero h1{font-size:clamp(2rem,4vw,2.8rem);margin:26px 0 12px}
-.hero p{max-width:660px;font-size:1.2rem;font-weight:300;margin:0 auto}
-.cta-btn{display:inline-block;margin-top:38px;padding:17px 42px;background:var(--accent);color:var(--bg);
-         border-radius:8px;font-weight:600;text-decoration:none;transition:opacity .25s}
-.cta-btn:hover{opacity:.9}
-
-/* features */
-section{padding:0 5% 70px}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:32px}
-.feature{background:var(--card);border-radius:12px;padding:30px}
-.feature h3{margin-bottom:12px;font-size:1.28rem}
-.feature p{margin:0;font-weight:300}
-
-/* screenshot gallery */
-.screenshot-section {
-  margin-top: 60px;
-  padding: 0;
-}
-
-.screenshot-gallery {
-  position: relative;
+/* App Store style hero */
+.app-hero {
+  padding: 40px 5%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Desktop: Grid layout */
-@media (min-width: 768px) {
-  .screens-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.app-hero-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.app-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  flex-shrink: 0;
+}
+
+.app-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.app-tagline {
+  font-size: 1.2rem;
+  color: var(--txt-secondary);
+  margin-bottom: 20px;
+}
+
+.app-meta {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  color: var(--txt-secondary);
+}
+
+.app-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-meta-label {
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.app-meta-value {
+  color: var(--txt);
+  font-weight: 600;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 15px 35px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+/* Screenshots section - more compact */
+.screenshots-section {
+  padding: 30px 5%;
+  background: var(--bg-secondary);
+}
+
+.screenshots-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.screenshots-wrapper {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 20px 0;
+}
+
+.screenshots-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.screenshot {
+  flex: 0 0 250px;
+  scroll-snap-align: start;
+}
+
+.screenshot img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  aspect-ratio: 9/19;
+  object-fit: cover;
+}
+
+/* Features section with icons */
+.features-section {
+  padding: 60px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 35px;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--txt-secondary);
+  line-height: 1.6;
+}
+
+/* What's New section */
+.whats-new {
+  padding: 40px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.whats-new h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.version-info {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.version-number {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.version-date {
+  color: var(--txt-secondary);
+  font-size: 0.95rem;
+}
+
+.update-list {
+  list-style: none;
+  padding: 0;
+}
+
+.update-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: var(--txt-secondary);
+  line-height: 1.6;
+}
+
+.update-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .app-hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+  
+  .app-info h1 {
+    font-size: 2rem;
+  }
+  
+  .app-meta {
+    justify-content: center;
     gap: 20px;
-    padding: 0 20px;
   }
   
-  .screen-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    background: #000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+  .screenshot {
+    flex: 0 0 200px;
   }
   
-  .screen-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
-  .screen-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 9/19;
-    object-fit: cover;
-  }
-  
-  /* Hide mobile-only controls on desktop */
-  .mobile-indicators,
-  .mobile-nav {
-    display: none;
+  .feature-card {
+    padding: 25px;
   }
 }
 
-/* Mobile: Swipeable carousel */
-@media (max-width: 767px) {
-  .screens-wrapper {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 16px;
-    padding: 0 20px;
-  }
-  
-  .screens-wrapper::-webkit-scrollbar {
+/* Hide swipe hint on desktop */
+@media (min-width: 768px) {
+  .swipe-hint {
     display: none;
   }
-  
-  .screen-item {
-    flex: 0 0 calc(100% - 40px);
-    scroll-snap-align: center;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-  }
-  
-  .screen-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 9/19;
-    object-fit: contain;
-    background: #000;
-  }
-  
-  /* Dot indicators */
-  .mobile-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-    padding-bottom: 20px;
-  }
-  
-  .indicator-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--div);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .indicator-dot.active {
-    width: 24px;
-    border-radius: 4px;
-    background: var(--accent);
-  }
-  
-          /* Swipe hint */
-    .swipe-hint {
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-      margin-top: 16px;
-      font-weight: 300;
-      display: block;
-    }
-  }
-  
-  /* Hide swipe hint on desktop */
-  @media (min-width: 768px) {
-    .swipe-hint {
-      display: none;
-    }
-  }
+}
 
   </style>
 </head>
@@ -222,55 +323,95 @@ section{padding:0 5% 70px}
   </div>
   <div class="mobile-overlay"></div>
 
-  <header class="hero">
-    <span class="badge"><img src="assets/quests-logo.png" alt="Quests app icon"></span>
-    <h1>Quests</h1>
-    <p>Challenge yourself. Improve together.</p>
-    <a href="https://testflight.apple.com/join/rqpveCgJ" class="cta-btn" target="_blank" rel="noopener noreferrer">Join the Beta</a>
-  </header>
+  <!-- App Store Style Hero -->
+  <section class="app-hero fade-in">
+    <div class="app-hero-content">
+      <img src="assets/quests-logo.png" alt="Quests app icon" class="app-icon">
+      <div class="app-info">
+        <h1>Quests</h1>
+        <p class="app-tagline">Challenge yourself. Improve together.</p>
+        <div class="app-meta">
+          <div class="app-meta-item">
+            <span class="app-meta-label">CATEGORY</span>
+            <span class="app-meta-value">Health & Fitness</span>
+          </div>
+          <div class="app-meta-item">
+            <span class="app-meta-label">COMPATIBILITY</span>
+            <span class="app-meta-value">iOS 14+ • Android 9+</span>
+          </div>
+          <div class="app-meta-item">
+            <span class="app-meta-label">PRICE</span>
+            <span class="app-meta-value">Free</span>
+          </div>
+        </div>
+        <a href="https://testflight.apple.com/join/rqpveCgJ" class="cta-btn" target="_blank" rel="noopener noreferrer">Join the Beta</a>
+      </div>
+    </div>
+  </section>
 
-  <section>
-    <div class="features">
-      <div class="feature">
+  <!-- Screenshots Section -->
+  <section class="screenshots-section">
+    <div class="screenshots-container">
+      <div class="screenshots-wrapper">
+        <div class="screenshot">
+          <img src="assets/SC1.png" alt="Quests home screen" loading="lazy">
+        </div>
+        <div class="screenshot">
+          <img src="assets/SC2.png" alt="Daily check-in interface" loading="lazy">
+        </div>
+        <div class="screenshot">
+          <img src="assets/SC3.png" alt="Social leaderboard" loading="lazy">
+        </div>
+        <div class="screenshot">
+          <img src="assets/SC4.png" alt="Create new quest" loading="lazy">
+        </div>
+        <div class="screenshot">
+          <img src="assets/SC5.png" alt="Profile and achievements" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section with Icons -->
+  <section class="features-section">
+    <h2 style="font-size: 2rem; margin-bottom: 10px;">Key Features</h2>
+    <p style="color: var(--txt-secondary); font-size: 1.1rem;">Everything you need to build better habits with friends</p>
+    
+    <div class="features-grid">
+      <div class="feature-card animate">
+        <div class="feature-icon">🎯</div>
         <h3>Create or Join Challenges</h3>
         <p>Start Dry January, hit 10K steps a day, or launch your own quest with friends in seconds.</p>
       </div>
-      <div class="feature">
+      
+      <div class="feature-card animate">
+        <div class="feature-icon">✅</div>
         <h3>Daily Check-ins</h3>
         <p>Log your progress each day to stay on track and build powerful habits together.</p>
       </div>
-      <div class="feature">
+      
+      <div class="feature-card animate">
+        <div class="feature-icon">🏆</div>
         <h3>Social Leaderboard</h3>
         <p>Track consistency and compete with friends—because accountability is more fun with a little rivalry.</p>
       </div>
     </div>
   </section>
 
-  <!-- Screenshot Gallery -->
-  <section class="screenshot-section">
-    <div class="screenshot-gallery">
-      <div class="screens-wrapper" id="screensWrapper">
-        <div class="screen-item">
-          <img src="assets/SC1.png" alt="Quests home screen showing active challenges" loading="lazy">
-        </div>
-        <div class="screen-item">
-          <img src="assets/SC2.png" alt="Daily check-in interface" loading="lazy">
-        </div>
-        <div class="screen-item">
-          <img src="assets/SC3.png" alt="Social leaderboard with friends" loading="lazy">
-        </div>
-        <div class="screen-item">
-          <img src="assets/SC4.png" alt="Create new quest interface" loading="lazy">
-        </div>
-        <div class="screen-item">
-          <img src="assets/SC5.png" alt="Profile and achievements view" loading="lazy">
-        </div>
-      </div>
-      
-      <!-- Mobile only: Dot indicators -->
-      <div class="mobile-indicators" id="indicators"></div>
-      <p class="swipe-hint">Swipe to explore</p>
+  <!-- What's New Section -->
+  <section class="whats-new animate">
+    <h2>What's New</h2>
+    <div class="version-info">
+      <span class="version-number">Version 1.0 Beta</span>
+      <span class="version-date">January 2025</span>
     </div>
+    <ul class="update-list">
+      <li>Initial beta release with core challenge features</li>
+      <li>Create and join unlimited wellness challenges</li>
+      <li>Daily check-in system with streak tracking</li>
+      <li>Social features to compete with friends</li>
+      <li>Beautiful iOS and Android native experience</li>
+    </ul>
   </section>
 
   <footer>
@@ -284,55 +425,6 @@ section{padding:0 5% 70px}
       <a href="/terms.html">Terms</a>
     </div>
   </footer>
-
-  <script>
-    // Mobile carousel functionality
-    (function() {
-      if (window.innerWidth > 767) return; // Only run on mobile
-      
-      const wrapper = document.getElementById('screensWrapper');
-      const indicators = document.getElementById('indicators');
-      const items = wrapper.querySelectorAll('.screen-item');
-      
-      // Create indicator dots
-      items.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.className = 'indicator-dot';
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => scrollToSlide(index));
-        indicators.appendChild(dot);
-      });
-      
-      const dots = indicators.querySelectorAll('.indicator-dot');
-      
-      function scrollToSlide(index) {
-        const item = items[index];
-        wrapper.scrollTo({
-          left: item.offsetLeft - (wrapper.offsetWidth - item.offsetWidth) / 2,
-          behavior: 'smooth'
-        });
-      }
-      
-      function updateIndicators() {
-        const scrollLeft = wrapper.scrollLeft;
-        const itemWidth = items[0].offsetWidth + 16; // including gap
-        const activeIndex = Math.round(scrollLeft / itemWidth);
-        
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === activeIndex);
-        });
-      }
-      
-      wrapper.addEventListener('scroll', updateIndicators);
-      
-      // Hide swipe hint after first interaction
-      wrapper.addEventListener('scroll', function hideHint() {
-        const hint = document.querySelector('.swipe-hint');
-        if (hint) hint.style.opacity = '0';
-              wrapper.removeEventListener('scroll', hideHint);
-    }, { once: true });
-  })();
-</script>
 
 <script src="/assets/global.js"></script>
 </body>
