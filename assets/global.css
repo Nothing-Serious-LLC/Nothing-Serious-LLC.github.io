@@ -130,7 +130,6 @@ nav {
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--div);
   transition: all var(--transition-base);
-  width: 100%;
 }
 
 .nav-container {
@@ -140,13 +139,6 @@ nav {
   padding: var(--space-lg) 5%;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-@media (min-width: 1200px) {
-  .nav-container {
-    padding-left: max(5%, calc((100vw - 1200px) / 2));
-    padding-right: max(5%, calc((100vw - 1200px) / 2));
-  }
 }
 
 .nav-logo {
