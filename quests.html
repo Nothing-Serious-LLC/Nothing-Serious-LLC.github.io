@@ -298,9 +298,13 @@
   flex: 0 0 280px;
   scroll-snap-align: start;
   opacity: 0;
-  animation: fadeInUp 0.08s ease-out forwards;
-  animation-delay: calc(var(--index) * 0.08s);
-  transition: transform 0.3s ease;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.screenshot.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -309,16 +313,16 @@
   }
 }
 
-.screenshot:nth-child(1) { --index: 0; }
-.screenshot:nth-child(2) { --index: 1; }
-.screenshot:nth-child(3) { --index: 2; }
-.screenshot:nth-child(4) { --index: 3; }
-.screenshot:nth-child(5) { --index: 4; }
-.screenshot:nth-child(6) { --index: 5; }
-.screenshot:nth-child(7) { --index: 6; }
+.screenshot:nth-child(1).in-view { transition-delay: 0.1s; }
+.screenshot:nth-child(2).in-view { transition-delay: 0.2s; }
+.screenshot:nth-child(3).in-view { transition-delay: 0.3s; }
+.screenshot:nth-child(4).in-view { transition-delay: 0.4s; }
+.screenshot:nth-child(5).in-view { transition-delay: 0.5s; }
+.screenshot:nth-child(6).in-view { transition-delay: 0.6s; }
+.screenshot:nth-child(7).in-view { transition-delay: 0.7s; }
 
-.screenshot:hover {
-  transform: scale(1.05);
+.screenshot.in-view:hover {
+  transform: translateY(0) scale(1.05);
 }
 
 .screenshot img {
@@ -642,6 +646,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Observe all scroll-animate sections
   document.querySelectorAll('.scroll-animate').forEach(section => {
     sectionObserver.observe(section);
+  });
+
+  // Observer for individual screenshots (desktop and mobile)
+  const screenshotObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // Observe all screenshots
+  document.querySelectorAll('.screenshot').forEach(screenshot => {
+    screenshotObserver.observe(screenshot);
   });
 
   // Special observer for feature cards on mobile
