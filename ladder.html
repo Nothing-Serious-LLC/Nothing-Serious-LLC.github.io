@@ -30,49 +30,96 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/global.css" />
   <style>
-    /* Page-specific styles */
+    /* Page-specific styles - matching Quests page */
     .app-hero {
-      padding: 60px 5%;
+      padding: 100px 5% 20px;
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      justify-content: center;
     }
+    
     .app-hero-content {
       display: flex;
-      gap: 40px;
+      flex-direction: column;
       align-items: center;
-      margin-bottom: 20px;
+      text-align: center;
+      gap: 25px;
+      margin-bottom: 40px;
+      width: 100%;
     }
+    
     .app-icon {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      width: 140px;
+      height: 140px;
+      border-radius: 30px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.5);
       flex-shrink: 0;
     }
+    
+    .app-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 600px;
+    }
+    
     .app-info h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      margin-bottom: 8px;
+      font-weight: 700;
     }
+    
     .app-tagline {
-      font-size: 1.1rem;
+      font-size: 1.35rem;
       color: var(--txt-secondary);
-      margin-bottom: 18px;
+      margin-bottom: 45px;
+      line-height: 1.5;
     }
+    
     .cta-btn {
       display: inline-block;
-      padding: 14px 28px;
+      width: fit-content;
+      min-width: 200px;
+      padding: 16px 60px;
       background: var(--accent);
-      color: var(--bg);
-      border-radius: 10px;
+      color: white;
+      border-radius: 12px;
       font-weight: 600;
+      font-size: 1.05rem;
       text-decoration: none;
       transition: all var(--transition-base);
+      box-shadow: 0 4px 14px rgba(51, 84, 255, 0.4);
     }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(51, 84, 255, 0.3); }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(51, 84, 255, 0.5);
+      background: var(--accent-hover);
+    }
+    
     @media (max-width: 768px) {
-      .app-hero-content { flex-direction: column; text-align: center; gap: 24px; }
-      .app-icon { width: 160px; height: 160px; border-radius: 32px; }
-      .cta-btn { width: 100%; max-width: 280px; }
+      .app-hero {
+        padding: 60px 5% 20px;
+      }
+      .app-icon {
+        width: 160px;
+        height: 160px;
+        border-radius: 32px;
+      }
+      .app-info h1 {
+        font-size: 2.5rem;
+      }
+      .app-tagline {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+      .cta-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 18px 40px;
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
