@@ -47,6 +47,18 @@
       gap: 25px;
       margin-bottom: 40px;
       width: 100%;
+      animation: heroSlideUp 0.8s ease-out;
+    }
+    
+    @keyframes heroSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     .app-icon {
