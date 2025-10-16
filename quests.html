@@ -36,7 +36,7 @@
 
 /* App Store style hero */
 .app-hero {
-  padding: 40px 5%;
+  padding: 60px 5% 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -105,8 +105,10 @@
 
 .app-hero-content {
   display: flex;
-  gap: 40px;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
   margin-bottom: 40px;
   animation: heroSlideUp 0.8s ease-out;
 }
@@ -130,12 +132,11 @@
 }
 
 .app-icon {
-  width: 120px;
-  height: 120px;
-  border-radius: 24px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  width: 140px;
+  height: 140px;
+  border-radius: 30px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
   flex-shrink: 0;
-  margin-top: 5px;
 }
 
 @media (max-width: 768px) {
@@ -147,36 +148,43 @@
 }
 
 .app-info h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 .app-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 600px;
 }
 
 .app-tagline {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   color: var(--txt-secondary);
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+  line-height: 1.5;
 }
 
 .cta-btn {
   display: inline-block;
   width: fit-content;
-  padding: 15px 35px;
+  padding: 16px 45px;
   background: var(--accent);
-  color: var(--bg);
-  border-radius: 8px;
+  color: white;
+  border-radius: 12px;
   font-weight: 600;
+  font-size: 1.05rem;
   text-decoration: none;
   transition: all var(--transition-base);
+  box-shadow: 0 4px 14px rgba(51, 84, 255, 0.4);
 }
 
 .cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(51, 84, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(51, 84, 255, 0.5);
+  background: var(--accent-hover);
 }
 
 @media (max-width: 768px) {
