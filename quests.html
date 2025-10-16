@@ -46,11 +46,11 @@
 /* Mobile viewport sections */
 @media (max-width: 768px) {
   .app-hero {
-    min-height: calc(100vh - 80px); /* 72px is est. nav height */
+    min-height: auto; /* Remove full viewport height */
     display: flex;
     align-items: flex-start; /* Align content to the top */
     justify-content: center;
-    padding: 100px 20px 0; /* Increased top padding for more space */
+    padding: 60px 20px 10px; /* Reduced bottom padding */
     box-sizing: border-box;
   }
   
@@ -58,7 +58,7 @@
     min-height: auto; /* Remove fixed height */
     display: flex;
     align-items: center;
-    padding: 40px 20px 40px 20px; /* More top padding for separation */
+    padding: 10px 20px 40px 20px; /* Reduced top padding */
   }
   
   .features-section {
@@ -222,7 +222,6 @@
 @media (max-width: 768px) {
   .screenshots-section {
     overflow: visible; /* Allow screenshots to be fully visible */
-    padding-top: 15px; /* Reduced from 30px for mobile */
   }
   
   /* Subtle hint animation on first load */
