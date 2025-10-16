@@ -136,8 +136,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-lg) max(5%, calc((100% - 1200px) / 2));
-  width: 100%;
+  padding: var(--space-lg) 5%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
