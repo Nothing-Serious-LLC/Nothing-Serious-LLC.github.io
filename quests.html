@@ -644,22 +644,25 @@ document.addEventListener('DOMContentLoaded', function() {
     sectionObserver.observe(section);
   });
 
-  // Observer for individual screenshots (desktop and mobile)
-  const screenshotObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-      }
+  // Observer for screenshots section - triggers all screenshots at once
+  const screenshotsSection = document.querySelector('.screenshots-section');
+  if (screenshotsSection) {
+    const screenshotsSectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Trigger all screenshots to animate
+          document.querySelectorAll('.screenshot').forEach(screenshot => {
+            screenshot.classList.add('in-view');
+          });
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
     });
-  }, {
-    threshold: 0.3,
-    rootMargin: '0px 0px -200px 0px'
-  });
-
-  // Observe all screenshots
-  document.querySelectorAll('.screenshot').forEach(screenshot => {
-    screenshotObserver.observe(screenshot);
-  });
+    
+    screenshotsSectionObserver.observe(screenshotsSection);
+  }
 
   // Special observer for feature cards on mobile
   if (window.innerWidth <= 768) {
